@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="static/rate.css">
+
+<style type="text/css">
+	.box {
+	  float: left;
+	  /*width: 200px;
+	  height: 100px;*/
+	  width: 100px;
+	  margin: 1em;
+	}
+	.after-box {
+	  clear: left;
+	}
+	.red-arrow {
+	  color: red;
+	}
+	.green-arrow {
+	  color: green;
+	}
+</style>
+
+</head>
+<body>
+	<header>
+		<div class="box">
+			<i class="fa fa-usd" aria-hidden="true"></i>
+			<rate id="usd_element" class="rate_box">
+				<i class="fa fa-spinner fa-spin fa-fw"></i>
+			</rate>
+			<i id="usd_arrow" class="fa" aria-hidden="true"></i>
+		</div>
+
+		<div class="box">
+			<i class="fa fa-eur" aria-hidden="true"></i>
+			<rate id="eur_element">
+				<i class="fa fa-spinner fa-spin fa-fw"></i>
+			</rate>
+			<i id="eur_arrow" class="fa" aria-hidden="true"></i>
+		</div>
+
+	</header>
+
+
+
+</body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script src="app.js"></script>
+
+</html>
+
+
+
+
+
+
+

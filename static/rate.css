@@ -1,0 +1,16 @@
+﻿.box {
+  float: left;
+  /*width: 200px;
+  height: 100px;*/
+  width: 100px;
+  margin: 1em;
+}
+.after-box {
+  clear: left;
+}
+.red-arrow {
+  color: red;
+}
+.green-arrow {
+  color: green;
+}
