@@ -1,5 +1,5 @@
 ﻿.box {
-  float: left;
+  display: inline-block;
   /*width: 200px;
   height: 100px;*/
   width: 100px;

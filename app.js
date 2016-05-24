@@ -9,7 +9,7 @@ var myDate = new Date(); //сейчас
 
 if(myDate.getDay() == 6 || myDate.getDay() == 0) weekend = true; //выходной или нет
 
-function getval(){
+function get_rate(){
     $.getJSON(rate_url, function( data ){
         values = data.query.results.rate;  
         var usd_rate = parseFloat(values[0].Rate);  //получаем значение валют
@@ -20,6 +20,7 @@ function getval(){
         $("#eur_element").text(eur_rate.toFixed(2));
 
     	setTimeout(4000);
+    	//TODO переписать по изменению контента
         if(old_usd_rate == null && weekend == false)  //если нет старого курса и не выходной
 			{
 			    old_usd_rate = usd_rate;	//оставляем предыдущее значение валют
@@ -29,22 +30,37 @@ function getval(){
 			//TODO увеличить интервал выполнения скрипта var INTERVAL
 		} else {
 				if(old_usd_rate <= usd_rate){
+					//TODO переписать как у eur
 					$("#usd_arrow").removeClass("fa-angle-down red-arrow").addClass("fa-angle-up green-arrow"); //классовая магия(нет)
 				 } else {
 				 	$("#usd_arrow").removeClass("fa-angle-up green-arrow").addClass("fa-angle-down red-arrow");
 				 };	
 				if(old_eur_rate < eur_rate){
-					$("#eur_arrow").addClass("fa-angle-up green-arrow").removeClass("fa-angle-down red-arrow");
+					//$("#eur_arrow").addClass("fa-angle-up green-arrow").removeClass("fa-angle-down red-arrow");
+					$("#eur_arrow").switchClass( "fa-angle-up green-arrow", "fa-angle-down red-arrow").animate({
+					    left: [ "+=50", "swing" ],
+					    opacity: [ 0.55, "linear" ]
+					}, 1500 );
 				 } else {
-				 	$("#eur_arrow").addClass("fa-angle-down red-arrow").removeClass("fa-angle-up green-arrow");
+				 	//$("#eur_arrow").addClass("fa-angle-down red-arrow").removeClass("fa-angle-up green-arrow");
+					$("#eur_arrow").switchClass( "fa-angle-down red-arrow", "fa-angle-up green-arrow").animate({
+					    //left: [ "+=50", "swing" ],
+					    opacity: [ 0.55, "linear" ]
+					}, 1500 );
+
 				 };
 				 old_usd_rate = usd_rate;	//ОБНОВЛЯЕМ старое значение валют
 			     old_eur_rate = eur_rate;
 			};
         });
     };
-//getval();
+//get_rate();
 $(document).ready(function(){
-	getval();
-    setInterval(getval, 3000);  //TODO вместо цифр INTERVAL
+	get_rate();
+    setInterval(get_rate, 3000);  //TODO вместо цифр INTERVAL
+
+    $( ".usd_element" ).change(function() {
+  		alert( "Handler for .change() called." );
+});
+
 });
