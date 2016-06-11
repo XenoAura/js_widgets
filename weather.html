@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Weather widget by @remtsoy</title>
+      <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="css/styles.css">
+      <link rel="stylesheet" href="css/normalize.css">
+      <link rel="stylesheet" href="climacon-font/styles.css">
+      <link rel="stylesheet" href="css/climacon.css">
+      <link rel="stylesheet" href="css/weather.css">
+      <link rel="stylesheet" href="static/weather-icons.min.css">
+        <style type="text/css">
+      /* If you want you can use font-face */
+
+    ul.time {
+        /*width: 800px;*/
+        margin: 5px auto;
+        padding: 0px;
+        list-style: none;
+        text-align: center;
+    }
+
+    ul.time li {
+        display: inline;
+/*        font-size: 10em;
+*/        text-align: center;
+        font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+        text-shadow: 0 0 5px;
+    }
+
+    #point {
+        position: relative;
+        -moz-animation: mymove 1s ease infinite;
+        -webkit-animation: mymove 1s ease infinite;
+/*        padding-left: 10px;
+        padding-right: 10px;*/
+    }
+
+    /* Simple Animation */
+    @-webkit-keyframes mymove {
+        0% {opacity: 1.0;
+        text-shadow: 0 0 20px;
+    }
+
+    50% {
+        opacity: 0;
+        text-shadow: none;
+    }
+
+    100% {
+        opacity: 1.0;
+        text-shadow: 0 0 20px;
+    } 
+    }
+
+    @-moz-keyframes mymove {
+        0% {
+            opacity: 1.0;
+            text-shadow: 0 0 20px;
+        }
+
+        50% {
+            opacity: 0;
+            text-shadow: none;
+        }
+
+        100% {
+            opacity: 1.0;
+            text-shadow: 0 0 20px ;
+        };
+    }
+
+
+    .patch {
+      font-size: 30px;
+    }
+  </style>
+   <body>
+      <div class="main-wrapper">
+         <div class="main-wrapper-mask"></div>
+         <div class="main-wrapper-blur" style="background-image: url(img/ny-lg.jpg)"></div>
+         <div class="main-wrapper-front">
+            <div class="full-center">
+
+              <div class="superclass">
+
+               <div class="widget-block">
+               	<!-- MAIN AREA -->
+                  <div class="img-area">
+                     <div class="img-area-mask"></div>
+                     <img src="img/ny-sm.jpg" alt="">
+                     <div class="img-area-front">
+                        <h5 class="location">Подольск</h5>
+                        <div class="today">
+                          <div id="Date"></div>
+                          <ul class="time">
+                              <li id="hours"></li>
+                              <li id="point">:</li>
+                              <li id="min"></li>
+                              <li id="point">:</li>
+                              <li id="sec"></li>
+                          </ul>
+                        </div>
+                        <div class="weather-desc">
+                           <!-- <span></span> -->
+                        </div>
+                        <ul class="weather-block-info">
+                           <li>
+                              <p class="temperature" id="temperature">25<span class="temperature-feels">+20 feels</span></p>
+                           </li>
+                           <li>
+                           	<!-- MAIN ANIMATED SVG WEATHER ICON -->
+                              <div id="icon">
+                                <img id="icon-image">
+                              </div>
+                              <!-- /MAIN ANIMATED SVG WEATHER ICON -->
+                           </li>
+                           <li>
+                              <ul class="weather-params" id="weather-params">
+                                 <li><i class="climacon thermometer medium-high"></i> <span>743 mm Hg</span></li>
+                                 <li><i class="climacon moon full"></i> <span id="humidity">%</span></li>
+                                 <li><i class="climacon wind"></i> <span id="wind"></span></li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <!-- /MAIN AREA -->
+                  <!-- WEATHER FORECAST -->
+                  <ul class="week-forecast" id="week-forecast">
+                     <li class="sun">
+                        <div class="inner">
+                           <h5 class="week-day">Завтра</h5>
+                           <i class="climacon"></i>
+                           <p class="week-day-temperature">30</p>
+                        </div>
+                     </li>
+                     <li class="rain">
+                        <div class="inner">
+                           <h5 class="week-day">Tuesday</h5>
+                           <i class="climacon"></i>
+                           <p class="week-day-temperature">25</p>
+                        </div>
+                     </li>
+                     <li class="cloud">
+                        <div class="inner">
+                           <h5 class="week-day">Wednsday</h5>
+                           <i class="climacon"></i>
+                           <p class="week-day-temperature">32</p>
+                        </div>
+                     </li>
+                     <li class="sun">
+                        <div class="inner">
+                           <h5 class="week-day">Thursday</h5>
+                           <i class="climacon"></i>
+                           <p class="week-day-temperature">30</p>
+                        </div>
+                     </li>
+                     <li class="lightning">
+                        <div class="inner">
+                           <h5 class="week-day">Friday</h5>
+                           <i class="climacon"></i>
+                           <p class="week-day-temperature">29</p>
+                        </div>
+                     </li>
+                     <li class="sun">
+                        <div class="inner">
+                           <h5 class="week-day">Saturday</h5>
+                           <i class="climacon"></i>
+                           <p class="week-day-temperature">25</p>
+                        </div>
+                     </li>
+                     <li class="rain">
+                        <div class="inner">
+                           <h5 class="week-day">Sunday</h5>
+                           <i class="climacon"></i>
+                           <p class="week-day-temperature">22</p>
+                        </div>
+                     </li>
+                  </ul>
+                  <!-- /WEATHER FORECAST -->
+               </div>
+               
+               </div>
+
+            </div>
+         </div>
+      </div>
+      <script src="static/jquery-1.12.3.min.js"></script>
+      <script src="static/jquery.simpleWeather.min.js"></script>
+      <script src="static/moment.js"></script>
+<!--       <script src="js/weather.js"></script>
+ -->
+      <script src="js/custom.js"></script>
+      <script type="text/javascript">
+  var monthNames = [ "Января", "Фераля", "Марта", "Апреля", "Мая", "Июня", "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря" ]; 
+  var dayNames= ["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"]
+
+  $(document).ready(function() {
+  // Create two variable with the names of the months and days in an array
+
+  // Create a newDate() object
+    var newDate = new Date();
+    // Extract the current date from Date object
+    newDate.setDate(newDate.getDate());
+    // Output the day, date, month and year   
+    $('#Date').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
+
+    function setTime(){
+      var seconds = new Date().getSeconds();
+      var minutes = new Date().getMinutes();
+      var hours = new Date().getHours();
+    
+      $("#sec").html(( seconds < 10 ? "0" : "" ) + seconds);
+      $("#min").html(( minutes < 10 ? "0" : "" ) + minutes);
+      $("#hours").html(( hours < 10 ? "0" : "" ) + hours);
+    }
+    
+    setTime();
+    setInterval(setTime, 1000);
+    // setInterval( function() {
+    //  // Create a newDate() object and extract the seconds of the current time on the visitor's
+    //  var seconds = new Date().getSeconds();
+    //  // Add a leading zero to seconds value
+    //  $("#sec").html(( seconds < 10 ? "0" : "" ) + seconds);
+    //  },1000);
+      
+    // setInterval( function() {
+    //  // Create a newDate() object and extract the minutes of the current time on the visitor's
+    //  var minutes = new Date().getMinutes();
+    //  // Add a leading zero to the minutes value
+    //  $("#min").html(( minutes < 10 ? "0" : "" ) + minutes);
+    //     },1000);
+      
+    // setInterval( function() {
+    //  // Create a newDate() object and extract the hours of the current time on the visitor's
+    //  var hours = new Date().getHours();
+    //  // Add a leading zero to the hours value
+    //  $("#hours").html(( hours < 10 ? "0" : "" ) + hours);
+    //     }, 1000);  
+  });
+  </script>
+
+
+   </body>
+</html>
